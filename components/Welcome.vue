@@ -1,7 +1,9 @@
 <script setup>
 const number= ref('')
 const onSubmit=()=>{
+  if( validNum(number.value) ){
   navigateTo(number.value)
+  }
 }
 
 const validNum = (n) => {
@@ -12,7 +14,7 @@ const buttonColor = (n) => {
 };
 </script>
 <template>
-      <i-header  class="_text-align:center _height:100%" style="background-color: white;background-image:url('./assets/background.jpg') ;background-size: 100% auto;border-style:solid;border-width:1px;border-color:#AAAAAA">
+      <i-header  class="_text-align:center _height:100%" style="background-color: white;background-image:url('./background.jpg') ;background-size: 100% auto;border-style:solid;border-width:1px;border-color:#AAAAAA">
           
             <i-row center>
               <i-column xs="12" md="6" lg="4">

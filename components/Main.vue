@@ -8,7 +8,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <i-row center style="background-image:url('./assets/background.jpg');background-size:100%;height:85vh;padding:10px;margin:0px" >
+  <i-row center style="background-image:url('./background.jpg');background-size:100%;height:85vh;padding:10px;margin:0px" >
     <i-column xs="12" md="8" lg="6" color="dark" >
         <div >
       <MediaVideoSelf />
