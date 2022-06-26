@@ -120,7 +120,7 @@ const startApp = () => {
       setMediaFollow(media, "CALL");
       if (selfStreamIsOn()) {
         logit("PEER", "ANSWER WITH STREAM " + media.peer);
-        media.answer(getSelfStream());
+        media.answer(uss.value);
       } else {
         logit("PEER", "ANSWER NO STREAM " + media.peer);
         media.answer();
