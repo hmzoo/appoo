@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  titleTemplate: "N3APP",
+  titleTemplate: "OOCAM",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   meta: [{ name: "description", content: "My amazing site." }],
@@ -42,7 +42,7 @@ onMounted(() => {
     <i-layout-header>
       <i-navbar size="sm" :collapse="false" class="_background:primary" style="padding:0;margin:0">
         <i-navbar-brand>
-          <span class="title">TITLE {{ getSlug() }}</span>
+          <span class="title">OOCAM</span>
         </i-navbar-brand>
 
         <i-nav size="sm" v-if="!checkSlug()">
