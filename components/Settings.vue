@@ -1,6 +1,5 @@
 <script setup>
-const camchecked=ref()
-const micchecked=ref()
+const emit = defineEmits(["onResetNumber"]);
 
 const bconf = useBrowserConf();
 const uad = useAudioDevices();
@@ -8,6 +7,10 @@ const uvd = useVideoDevices();
 
 const changeDevice = ()=> {
 MediaControl.changeDevice()
+}
+const resetNumber =()=>{
+  console.log("RESET")
+emit('onResetNumber')
 }
 </script>
 
@@ -37,7 +40,7 @@ MediaControl.changeDevice()
     </i-row>
     <i-row>
     <i-column>
-
+<i-button size="sm" color="warning" @click="resetNumber()"> RESET MY NUMBER</i-button>
     </i-column>
           
     </i-row>

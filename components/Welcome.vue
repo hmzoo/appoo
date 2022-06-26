@@ -1,8 +1,13 @@
 <script setup>
+const emit = defineEmits(["onCallNumber"]);
+const ukey = useUKey();
 const number= ref('')
 const onSubmit=()=>{
   if( validNum(number.value) ){
-  navigateTo(number.value)
+    console.log("EMIT",number.value)
+   emit("onCallNumber", number.value);
+  //addFollowUkey(number.value)
+  //navigateTo(number.value)
   }
 }
 
@@ -15,7 +20,12 @@ const buttonColor = (n) => {
 </script>
 <template>
       <i-header  class="_text-align:center _height:100%" style="background-color: white;background-image:url('./background.jpg') ;background-size: 100% auto;border-style:solid;border-width:1px;border-color:#AAAAAA">
-          
+             <i-row center>
+              <i-column xs="12" md="6" lg="4">
+                {{ ukey.ukey}}
+                </i-column>
+                </i-row>
+
             <i-row center>
               <i-column xs="12" md="6" lg="4">
                 <i-form @submit="onSubmit">
