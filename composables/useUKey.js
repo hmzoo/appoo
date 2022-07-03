@@ -14,9 +14,7 @@ export const useInfoUKey = () => {
     return useState('infoukey', () => "...")
 }
 //LIST
-export const useListUKey = () => {
-    return useState('listukey', () => [])
-}
+
 export const useFollowsUKey = () => {
     return useState('followsukey', () => [])
 }
@@ -33,7 +31,6 @@ export const useSelectedFollow = () => {
 
 //localStorage
 const setLocalUKey = () => {
-
     if (localStorage != undefined) {
         const ukey = useUKey()
         localStorage.setItem('UKEY', JSON.stringify(ukey.value))
@@ -41,7 +38,6 @@ const setLocalUKey = () => {
 }
 
 const getLocalUKey = () => {
-
     if (localStorage != undefined && localStorage.getItem('UKEY') != null) {
         const ukey = useUKey()
         ukey.value = JSON.parse(localStorage.getItem('UKEY'))
@@ -102,14 +98,13 @@ const updateStates=(data)=> {
     return data
 }
 
-// GET REQ
+// RESET UKEY
 
 export const resetUKey = () => {
     deleteIDUKey()
     const ukey = useUKey()
     ukey.value = {ukey: "000000",uid: "xxx-xxx-xxx"}
-    setLocalUKey();
-    
+    setLocalUKey();   
 }
 
 
@@ -120,7 +115,6 @@ export const getApiUKey = () => {
     const date = Date.now()
     return $fetch(`/api/ukey?ukey=${ukey.value.ukey}&uid=${ukey.value.uid}&date=${date}`)
         .then(resp => {
-          //  console.log("RESP",resp)
             updateStates(resp);
             setLocalUKey();
             return resp;
@@ -130,7 +124,7 @@ export const getApiUKey = () => {
 
 //POST REQ 
 
-const reqItemListUKey = (req)=> {
+const reqPostUKey = (req)=> {
     const ukey = useUKey('ukey');
     req.ukey=ukey.value.ukey;
     req.uid=ukey.value.uid;
@@ -147,25 +141,25 @@ const reqItemListUKey = (req)=> {
 export const getAllDataUkey = () => {
     
     
-    const req =reqItemListUKey({cmd:"GET"})
+    const req =reqPostUKey({cmd:"GET"})
 }
 
 export const addFollowUkey = (lookat) => {
     logit("UKEY","ADDFOLLOW "+lookat)
     console.log("add ",lookat)
-    reqItemListUKey({cmd:"ADD",lookat:lookat})
+    reqPostUKey({cmd:"ADD",lookat:lookat})
 }
 
 export const delFollowUKey = (lookat) => {
-    reqItemListUKey({cmd:"DEL",lookat:lookat})
+    reqPostUKey({cmd:"DEL",lookat:lookat})
 }
 export const setInfoUKey = (info) => {
     logit("UKEY","SETINFO "+info)
-    reqItemListUKey({cmd:"SETINFO",info:info})
+    reqPostUKey({cmd:"SETINFO",info:info})
 }
 
 export const deleteIDUKey = () => {
-    reqItemListUKey({cmd:"DELETEID"})
+    reqPostUKey({cmd:"DELETEID"})
 }
 
 export const selectFollowUkey = (lookat,b) => {
