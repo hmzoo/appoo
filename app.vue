@@ -224,7 +224,7 @@ onMounted(() => {
         style="padding: 0; margin: 0"
       >
         <i-navbar-brand>
-          <span class="title">OOCAM</span> ID: {{ ukey.ukey }}
+          <span class="title">OOCAM &nbsp;</span> <small class="_color:white">{{ ukey.ukey }}</small> 
         </i-navbar-brand>
 
         <i-nav size="sm" v-if="checkF()">

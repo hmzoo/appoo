@@ -22,7 +22,7 @@ const buttonColor = (n) => {
       <i-header  class="_text-align:center _height:100%" style="background-color: white;background-image:url('./background.jpg') ;background-size: 100% auto;border-style:solid;border-width:1px;border-color:#AAAAAA">
              <i-row center>
               <i-column xs="12" md="6" lg="4">
-                {{ ukey.ukey}}
+                <h1 class="_color:white"> Your Number : {{ ukey.ukey}}</h1>
                 </i-column>
                 </i-row>
 
